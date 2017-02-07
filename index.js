@@ -8,11 +8,11 @@ const io = require('socket.io')(http);
 app.use(express.static(path.join(__dirname, 'public')));
 
 io.on('connection', socket => {
-  console.log('a user connected');
+  // console.log('a user connected');
   socket.broadcast.emit('hi');
 
   socket.on('disconnect', () => {
-    console.log('user disconnected');
+    // console.log('user disconnected');
   });
 
   socket.on('chat message', msg => {

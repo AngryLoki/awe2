@@ -13,5 +13,11 @@
     </div>
   </div>
 
-  <style></style>
+  <style>
+    .mdl-card {
+      width: 100%;
+      min-height: auto;
+    }
+
+  </style>
 </modules>

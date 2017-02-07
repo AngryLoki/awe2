@@ -14,7 +14,7 @@
       </div>
     </header>
     <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Title</span>
+      <span class="mdl-layout-title">AWE2</span>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="#" each={ menuItems } data-route={ route } onclick={ goto }>{ name }</a>
       </nav>
@@ -25,11 +25,13 @@
   </div>
 
   <script>
+    var self = this;
+
     this.on('mount', function () {
       componentHandler.upgradeDom();
     });
 
-    this.component = 'welcome';
+    // this.component = 'welcome';
 
     this.menuItems = [
       {
@@ -44,10 +46,16 @@
       }
     ];
 
+    route('/*', function (path) {
+      self.component = path;
+    });
+
+    route.start();
+    route.exec();
+
     goto(e) {
       event.preventDefault();
-      console.log('Hello ' + e.target.dataset.route);
-      this.component = e.target.dataset.route;
+      route(e.target.dataset.route);
     }
   </script>
 

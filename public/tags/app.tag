@@ -54,6 +54,7 @@
   <style>
     .content {
       background: #fafafa;
+      padding: 2em;
     }
 
   </style>

@@ -1,10 +1,5 @@
 <welcome>
-  <h2>Landing</h2>
+  <h2>Landings</h2>
 
-  <style>
-    :scope {
-      padding: 2em;
-    }
-
-  </style>
+  <style></style>
 </welcome>

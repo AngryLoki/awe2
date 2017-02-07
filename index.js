@@ -1,10 +1,11 @@
 const express = require('express')
 const process = require('process')
+const path = require('path')
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 io.on('connection', socket => {
   console.log('a user connected');
@@ -21,6 +22,6 @@ io.on('connection', socket => {
 
 app.set('port', process.env.PORT || 3000);
 
-http.listen(app.get('port'), () => {
+let server = http.listen(app.get('port'), () => {
   console.log('listening on *:%d', server.address().port);
 });

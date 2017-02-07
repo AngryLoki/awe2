@@ -13,15 +13,5 @@
     </div>
   </div>
 
-  <style>
-    :scope {
-      padding: 2em;
-    }
-
-    .mdl-card {
-      min-height: auto;
-      width: 100%;
-    }
-
-  </style>
+  <style></style>
 </modules>

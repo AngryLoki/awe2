@@ -2,13 +2,12 @@
  * Module Dependencies
  */
 
-var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
-var reload = browserSync.reload;
-var nodemon = require('gulp-nodemon');
+const gulp = require("gulp");
+const browserSync = require("browser-sync").create();
+const reload = browserSync.reload;
+const nodemon = require("gulp-nodemon");
 
-
-gulp.task('browser-sync', ['nodemon'], function() {
+gulp.task("browser-sync", ["nodemon"], function() {
   browserSync.init({
     proxy: {
       target: "localhost:3000", // local node app address
@@ -19,29 +18,28 @@ gulp.task('browser-sync', ['nodemon'], function() {
   });
 });
 
-gulp.task('nodemon', function(cb) {
+gulp.task("nodemon", function(cb) {
   var called = false;
   return nodemon({
-      script: 'index.js',
-      ignore: [
-        'gulpfile.js',
-        'node_modules/',
-        'public/'
-      ]
+      script: "index.js",
+      ignore: ["gulpfile.js", "node_modules/", "public/"]
     })
-    .on('start', function() {
+    .on("start", function() {
       if (!called) {
         called = true;
         cb();
       }
     })
-    .on('restart', function() {
-      setTimeout(function() {
-        reload({ stream: false });
-      }, 1000);
+    .on("restart", function() {
+      setTimeout(
+        function() {
+          reload({ stream: false });
+        },
+        1000
+      );
     });
 });
 
-gulp.task('default', ['browser-sync'], function() {
-  gulp.watch(['public/**/*.*']).on('change', reload);
+gulp.task("default", ["browser-sync"], function() {
+  gulp.watch(["public/**/*.*"]).on("change", reload);
 });
